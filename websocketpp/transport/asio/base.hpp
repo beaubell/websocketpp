@@ -79,7 +79,7 @@ public:
 
 private:
     // Storage space used for handler-based custom memory allocation.
-    lib::aligned_storage<size>::type m_storage;
+    alignas(64) std::array<std::byte, size>  m_storage;
 
     // Whether the handler-based custom allocation storage has been used.
     bool m_in_use;
